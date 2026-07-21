@@ -225,3 +225,22 @@ void sort_numbers_descending(std::vector<int>& numbers) {
     std::sort(numbers.rbegin(), numbers.rend());
     std::cout << "Numbers sorted in descending order.\n\n";
 }
+
+void clear_all_numbers(std::vector<int>& numbers) {
+    if (numbers.empty()) {
+        std::cout << "Cannot clear. List is already empty - []\n";
+        return;
+    }
+
+        char confirm{};
+        std::cout << "Are you sure you want to clear all numbers (Y/N): ";
+        std::cin >> confirm;
+        std::cin.ignore(10000, '\n');
+
+        if (confirm == 'Y' || confirm == 'y') {
+            numbers.clear();
+            std::cout << "All numbers have been cleared.\n";
+        } else {
+            std::cout << "Clear operation has been cancelled.\n";
+        }
+}
